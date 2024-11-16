@@ -32,10 +32,11 @@ if (isset($_POST['login'])) {
 	<link rel="shortcut icon" href="./assets/images/php-icon.png" type="image/x-icon">
 </head>
 
-<body>
+<body style="background-color: #30a5ff;">
 	<div class="row">
-		<h2 class="text-center">Seguimiento Diario de Gastos</h2>
-		<hr />
+		
+		<h1 style="color: #000000;" class="text-center">Seguimiento Diario de Gastos</h1>
+		<br><br><br>
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Iniciar Sesión</div>

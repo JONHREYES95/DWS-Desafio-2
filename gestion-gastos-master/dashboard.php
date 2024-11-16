@@ -27,7 +27,7 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 		<link rel="shortcut icon" href="./assets/images/php-icon.png" type="image/x-icon">
 	</head>
 
-	<body>
+	<body style="background-color: #e990ff;">
 
 		<?php include_once('includes/header.php'); ?>
 		<?php include_once('includes/sidebar.php'); ?>

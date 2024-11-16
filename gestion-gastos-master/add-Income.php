@@ -13,15 +13,15 @@ if (!isset($_SESSION['detsuid'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitizar los datos para prevenir inyecciones SQL
     $userid = mysqli_real_escape_string($con, $_SESSION['detsuid']);
-    $dateincome = mysqli_real_escape_string($con, $_POST['dateincome']);
-    $item = mysqli_real_escape_string($con, $_POST['item']);
-    $costincome = mysqli_real_escape_string($con, $_POST['costincome']);
+    $dateincome = mysqli_real_escape_string($con, $_POST['IncomeDate']);
+    $item = mysqli_real_escape_string($con, $_POST['IncomeItem']);
+    $costincome = mysqli_real_escape_string($con, $_POST['IncomeAmount']);
 
     // Insertar los datos en la base de datos
-    $query = "INSERT INTO tblIncome (UserId, IncomeDate, IncomeItem, IncomeCost) VALUES ('$userid', '$dateincome', '$item', '$costincome')";
+    $query = "INSERT INTO tblincome (UserId, IncomeDate, IncomeItem, IncomeAmount) VALUES ('$userid', '$IncomeDate', '$IncomeItem', '$IncomeAmount')";
     if (mysqli_query($con, $query)) {
         echo "<script>alert('El ingreso ha sido agregado');</script>";
-        echo "<script>window.location.href='manage-income.php'</script>";
+        echo "<script>window.location.href='manage-Income.php'</script>";
     } else {
         echo "<script>alert('Error al agregar el ingreso: ' . mysqli_error($con));</script>";
     }

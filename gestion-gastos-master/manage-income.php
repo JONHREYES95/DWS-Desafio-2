@@ -9,10 +9,10 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 	// Código para eliminar
 	if (isset($_GET['delid'])) {
 		$rowid = intval($_GET['delid']);
-		$query = mysqli_query($con, "DELETE FROM tblexpense WHERE ID='$rowid'");
+		$query = mysqli_query($con, "DELETE FROM tblincome WHERE ID='$rowid'");
 		if ($query) {
 			echo "<script>alert('Registro eliminado con éxito');</script>";
-			echo "<script>window.location.href='manage-expense.php'</script>";
+			echo "<script>window.location.href='manage-income.php'</script>";
 		} else {
 			echo "<script>alert('Algo salió mal. Por favor, inténtelo de nuevo');</script>";
 		}
@@ -25,7 +25,7 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Entradas y Salidas || Gastos</title>
+		<title>Entradas y Salidas || Ingresos</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/datepicker3.css" rel="stylesheet">
@@ -45,14 +45,14 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 			<div class="row">
 				<ol class="breadcrumb">
 					<li><a href="#"><em class="fa fa-home"></em></a></li>
-					<li class="active">Gastos</li>
+					<li class="active">Ingresos</li>
 				</ol>
 			</div><!--/.row-->
 
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">Gastos</div>
+						<div class="panel-heading">Ingresos</div>
 						<div class="panel-body">
 							<?php if (isset($msg)) { ?>
 								<p class="alert alert-danger"><?php echo $msg; ?></p>
@@ -63,24 +63,24 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 										<thead>
 											<tr>
 												<th>N°</th>
-												<th>Concepto del Gasto</th>
-												<th>Costo del Gasto</th>
-												<th>Fecha del Gasto</th>
+												<th>Concepto del Ingreso</th>
+												<th>Cantidad de Ingreso</th>
+												<th>Fecha del Ingreso</th>
 												<th>Acción</th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
 											$userid = $_SESSION['detsuid'];
-											$ret = mysqli_query($con, "SELECT * FROM tblexpense WHERE UserId='$userid'");
+											$ret = mysqli_query($con, "SELECT * FROM tblincome WHERE UserId='$userid'");
 											$cnt = 1;
 											while ($row = mysqli_fetch_array($ret)) {
 											?>
 												<tr>
 													<td><?php echo $cnt; ?></td>
-													<td><?php echo $row['ExpenseItem']; ?></td>
-													<td><?php echo $row['ExpenseCost']; ?></td>
-													<td><?php echo $row['ExpenseDate']; ?></td>
+													<td><?php echo $row['IncomeItem']; ?></td>
+													<td><?php echo $row['IncomeAmount']; ?></td>
+													<td><?php echo $row['IncomeDate']; ?></td>
 													<td>
 														<a href="manage-expense.php?delid=<?php echo $row['ID']; ?>"
 															onclick="return confirm('¿Está seguro de que desea eliminar este gasto?');"

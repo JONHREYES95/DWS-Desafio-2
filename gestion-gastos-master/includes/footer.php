@@ -1,4 +1,5 @@
-<div class="col-sm-12">
+<div class="col-sm-12" style="background-color: #000000;">
+	<br>
 	<p class="back-link">¿Necesitas asesoria? contactanos <a href="https://github.com/JONHREYES95">Grupo asesores S.A de C.V</a>
 	<div class="alignleft">
 		<script type="text/javascript">

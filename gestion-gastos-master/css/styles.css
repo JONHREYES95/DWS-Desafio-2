@@ -1,8 +1,8 @@
 body {
-  background: #10cbff;
+  background: #cf10ff;
   padding-top: 60px;
   font-size: 14px;
-  color: #444444;
+  color: #000000;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 p {
@@ -12,7 +12,7 @@ a, a:hover, a:focus {
   color: #30a5ff; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444; }
+  color: #000000; }
 
 h1 {
   font-weight: 300;
@@ -79,7 +79,7 @@ input.form-control {
   border: 1px solid #f9243f; }
 
 .navbar-custom {
-  background: #c3bdbd;
+  background: #c75a5a;
   height: 60px; }
 
 .navbar-header .navbar-brand {
@@ -94,12 +94,12 @@ input.form-control {
   color: #69b102; }
 
 .navbar-toggle {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 124, 124, 0.386);
   padding: 12px;
   margin-top: 10px; }
 
 .navbar-toggle:hover {
-  background: rgba(255, 255, 255, 0.05); }
+  background: rgba(255, 255, 255, 0.372); }
 
 .icon-bar {
   background: #fff; }
@@ -192,7 +192,7 @@ a.btn:hover, button:hover {
   opacity: 0.8; }
 
 a.btn:active, button:active {
-  box-shadow: inset 0px 0px 500px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 500px rgba(161, 151, 151, 0.452);
   opacity: 1; }
 
 .btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default, .btn-default.disabled, .btn-default[disabled], fieldset[disabled] .btn-default, .btn-default.disabled:hover, .btn-default[disabled]:hover, fieldset[disabled] .btn-default:hover, .btn-default.disabled:focus, .btn-default[disabled]:focus, fieldset[disabled] .btn-default:focus, .btn-default.disabled:active, .btn-default[disabled]:active, fieldset[disabled] .btn-default:active, .btn-default.disabled.active, .btn-default[disabled].active, fieldset[disabled] .btn-default.active {
@@ -935,7 +935,7 @@ h1.page-header {
   border-color: #285e8e; }
 
 .datepicker table tr td span:hover, .datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover, .datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
-  background: rgba(0, 0, 0, 0.05); }
+  background: rgba(121, 111, 111, 0.568); }
 
 .todo-list {
   padding: 0;

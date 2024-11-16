@@ -44,7 +44,7 @@ include('includes/dbconnection.php');
             </a>
             <ul class="nav flex-column collapse" id="menu-Ingresos">
                 <li class="nav-item"><a class="nav-link" href="add-Income.php"><i class="fa fa-arrow-right"></i> Añadir Ingresos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-arrow-right"></i>Informacion de Ingresos</a></li>
+                <li class="nav-item"><a class="nav-link" href="manage-Income"><i class="fa fa-arrow-right"></i>Informacion de Ingresos</a></li>
             </ul>
         </li>
 
