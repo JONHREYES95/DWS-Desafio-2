@@ -2,30 +2,23 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+if (strlen($_SESSION['detsuid'] == 0)) {
+	header('location:logout.php');
+} else {
 
-// Verificar si el usuario está autenticado
-if (!isset($_SESSION['detsuid'])) {
-    header('location:logout.php');
-    exit();
-}
-
-// Procesar el formulario si se ha enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitizar los datos para prevenir inyecciones SQL
-    $userid = mysqli_real_escape_string($con, $_SESSION['detsuid']);
-    $dateincome = mysqli_real_escape_string($con, $_POST['IncomeDate']);
-    $item = mysqli_real_escape_string($con, $_POST['IncomeItem']);
-    $costincome = mysqli_real_escape_string($con, $_POST['IncomeAmount']);
-
-    // Insertar los datos en la base de datos
-    $query = "INSERT INTO tblincome (UserId, IncomeDate, IncomeItem, IncomeAmount) VALUES ('$userid', '$IncomeDate', '$IncomeItem', '$IncomeAmount')";
-    if (mysqli_query($con, $query)) {
-        echo "<script>alert('El ingreso ha sido agregado');</script>";
-        echo "<script>window.location.href='manage-Income.php'</script>";
-    } else {
-        echo "<script>alert('Error al agregar el ingreso: ' . mysqli_error($con));</script>";
-    }
-}
+	if (isset($_POST['submit'])) {
+		$userid = $_SESSION['detsuid'];
+		$IncomeDate = $_POST['IncomeDate'];
+		$IncomeItem = $_POST['IncomeItem'];
+		$IncomeAmount = $_POST['IncomeAmount'];
+		$query = mysqli_query($con, "INSERT INTO tblincome(userid,IncomeDate,IncomeItem,IncomeAmount) VALUES('$userid','$IncomeDate','$IncomeItem','$IncomeAmount')");
+		if ($query) {
+			echo "<script>alert('El ingreso ha sido agregado');</script>";
+			echo "<script>window.location.href='manage-Income.php'</script>";
+		} else {
+			echo "<script>alert('Algo salió mal. Por favor, intente de nuevo');</script>";
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -75,15 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								<form role="form" method="post" action="">
 									<div class="form-group">
 										<label>Fecha del Ingreso</label>
-										<input class="form-control" type="date" name="dateexpense" required="true">
+										<input class="form-control" type="date" name="IncomeDate" required="true">
 									</div>
 									<div class="form-group">
 										<label>Motivo</label>
-										<input type="text" class="form-control" name="item" required="true">
+										<input type="text" class="form-control" name="IncomeItem" required="true">
 									</div>
 									<div class="form-group">
 										<label>Cantidad del ingreso</label>
-										<input class="form-control" type="number" step="0.01" required="true" name="costitem">
+										<input class="form-control" type="number" step="0.01" required="true" name="IncomeAmount">
 									</div>
 									<div class="form-group">
 										<button type="submit" class="btn btn-primary" name="submit">Agregar</button>
@@ -109,3 +102,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	</body>
 
 	</html>
+	<?php }  ?>
